@@ -24,7 +24,7 @@ def send_email(
     msg['Reply-To'] = USER
     msg['Return-Path'] = USER
     msg['X-Mailer'] = 'decorator'
-@@ -32,24 +33,29 @@
+    text_to_send = MIMEText(mail_body, 'html')
     msg.attach(text_to_send)
     if attachment:
         is_file_exists = os.path.exists(attachment)

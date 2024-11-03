@@ -21,15 +21,19 @@ for animal_info in data:
 
     if poisonous:
         cost_for_month_poisonous_animal = amount * cost_for_month
-        print(cost_for_month_poisonous_animal)
+        print('Cost for month of poisonous animals -', cost_for_month_poisonous_animal)
 
     if continent == 'Africa':
         africa_animals += amount
-print(africa_animals)
+print('Amount of African animals -', africa_animals)
 
 if most_expensive_animal:
     from util_email import send_email, render_html
 
-    result = render_html('templates/user_welcome_letter.html')
+    result = render_html('templates/zoo_animals.html', most_expensive_animal)
 
-
+    send_email(
+        ['test_hillel_api_mailing@ukr.net'],
+        result,
+        'mail subject'
+    )
